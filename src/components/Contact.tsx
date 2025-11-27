@@ -6,8 +6,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "arshinashi@gmail.com",
-      href: "mailto:arshinashi@gmail.com",
+      value: "arshinashi305@gmail.com",
+      href: "mailto:arshinashi305@gmail.com",
       gradient: "from-primary/20 to-primary/5",
     },
     {
