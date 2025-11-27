@@ -1,37 +1,29 @@
 import { Code, Database, Layout, Zap, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
 const Skills = () => {
-  const skillCategories = [
-    {
-      icon: Code,
-      title: "Programming & Frameworks",
-      skills: ["PHP", "Magento 2", "CodeIgniter", "JavaScript", "Knockout.js", "jQuery", "AJAX"],
-      gradient: "from-primary/20 via-primary/10 to-transparent",
-    },
-    {
-      icon: Database,
-      title: "Database & Backend",
-      skills: ["MySQL", "API Development", "Server-side Logic"],
-      gradient: "from-secondary/20 via-secondary/10 to-transparent",
-    },
-    {
-      icon: Layout,
-      title: "Frontend",
-      skills: ["HTML", "CSS", "Responsive Design", "UI/UX"],
-      gradient: "from-accent/20 via-accent/10 to-transparent",
-    },
-    {
-      icon: Zap,
-      title: "Core Strengths",
-      skills: ["Team Collaboration", "Performance Optimization", "Custom Module Development", "Magento Expertise"],
-      gradient: "from-primary/20 via-secondary/10 to-transparent",
-    },
-  ];
-
-  return (
-    <section id="skills" className="py-20 bg-muted/30 relative overflow-hidden">
+  const skillCategories = [{
+    icon: Code,
+    title: "Programming & Frameworks",
+    skills: ["PHP", "Magento 2", "CodeIgniter", "JavaScript", "Knockout.js", "jQuery", "AJAX"],
+    gradient: "from-primary/20 via-primary/10 to-transparent"
+  }, {
+    icon: Database,
+    title: "Database & Backend",
+    skills: ["MySQL", "API Development", "Server-side Logic"],
+    gradient: "from-secondary/20 via-secondary/10 to-transparent"
+  }, {
+    icon: Layout,
+    title: "Frontend",
+    skills: ["HTML", "CSS", "Responsive Design", "UI/UX"],
+    gradient: "from-accent/20 via-accent/10 to-transparent"
+  }, {
+    icon: Zap,
+    title: "Core Strengths",
+    skills: ["Team Collaboration", "Performance Optimization", "Custom Module Development", "Magento Expertise"],
+    gradient: "from-primary/20 via-secondary/10 to-transparent"
+  }];
+  return <section id="skills" className="py-20 bg-muted/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -53,12 +45,9 @@ const Skills = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="group relative p-8 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all overflow-hidden animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+          {skillCategories.map((category, index) => <Card key={index} style={{
+          animationDelay: `${index * 0.1}s`
+        }} className="group relative p-8 backdrop-blur-sm border-border hover:border-primary/50 transition-all overflow-hidden animate-fade-in bg-slate-900">
               {/* Gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
               
@@ -71,26 +60,17 @@ const Skills = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      variant="secondary"
-                      className="text-sm px-5 py-2.5 bg-muted/70 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all cursor-default border border-border hover:border-primary font-medium"
-                    >
+                  {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="text-sm px-5 py-2.5 bg-muted/70 backdrop-blur-sm hover:bg-primary hover:scale-105 transition-all cursor-default border border-border hover:border-primary font-medium text-primary">
                       {skill}
-                    </Badge>
-                  ))}
+                    </Badge>)}
                 </div>
               </div>
               
               {/* Decorative corner */}
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Skills;
