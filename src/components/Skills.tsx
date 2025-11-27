@@ -1,4 +1,4 @@
-import { Code, Database, Layout, Zap } from "lucide-react";
+import { Code, Database, Layout, Zap, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -8,32 +8,46 @@ const Skills = () => {
       icon: Code,
       title: "Programming & Frameworks",
       skills: ["PHP", "Magento 2", "CodeIgniter", "JavaScript", "Knockout.js", "jQuery", "AJAX"],
+      gradient: "from-primary/20 via-primary/10 to-transparent",
     },
     {
       icon: Database,
       title: "Database & Backend",
       skills: ["MySQL", "API Development", "Server-side Logic"],
+      gradient: "from-secondary/20 via-secondary/10 to-transparent",
     },
     {
       icon: Layout,
       title: "Frontend",
       skills: ["HTML", "CSS", "Responsive Design", "UI/UX"],
+      gradient: "from-accent/20 via-accent/10 to-transparent",
     },
     {
       icon: Zap,
       title: "Core Strengths",
       skills: ["Team Collaboration", "Performance Optimization", "Custom Module Development", "Magento Expertise"],
+      gradient: "from-primary/20 via-secondary/10 to-transparent",
     },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 bg-muted/30 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/50 backdrop-blur-sm rounded-full text-sm border border-primary/20 mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">Tech Stack</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Technical <span className="text-gradient">Skills</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit for building modern web applications
           </p>
         </div>
@@ -42,27 +56,35 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="p-8 bg-card border-border hover:border-primary/50 transition-all group hover:card-glow animate-fade-in"
+              className="group relative p-8 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all overflow-hidden animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <category.icon className="w-7 h-7 text-primary" />
+              {/* Gradient overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all border border-primary/20">
+                    <category.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{category.title}</h3>
                 </div>
-                <h3 className="text-2xl font-semibold">{category.title}</h3>
+                
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className="text-sm px-5 py-2.5 bg-muted/70 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all cursor-default border border-border hover:border-primary font-medium"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
               </div>
               
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <Badge
-                    key={skillIndex}
-                    variant="secondary"
-                    className="text-sm px-4 py-2 bg-muted hover:bg-primary hover:text-primary-foreground transition-all cursor-default"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
+              {/* Decorative corner */}
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </Card>
           ))}
         </div>
