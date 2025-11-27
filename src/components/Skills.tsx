@@ -60,7 +60,7 @@ const Skills = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="text-sm px-5 py-2.5 bg-muted/70 backdrop-blur-sm hover:bg-primary hover:scale-105 transition-all cursor-default border border-border hover:border-primary font-medium text-primary">
+                  {category.skills.map((skill, skillIndex) => <Badge key={skillIndex} variant="secondary" className="text-sm px-5 py-2.5 bg-muted/70 backdrop-blur-sm hover:bg-primary hover:scale-105 transition-all cursor-default border border-border hover:border-primary font-medium text-destructive-foreground">
                       {skill}
                     </Badge>)}
                 </div>
