@@ -131,9 +131,11 @@ const Hero = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-card/30 backdrop-blur-md border-2 border-primary/30 flex items-center justify-center overflow-hidden group-hover:border-primary/60 transition-all m-2">
                 {/* Inner content */}
                 <div className="text-center p-8 relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/20 group-hover:scale-110 transition-transform">
-                    <span className="text-6xl">👨‍💻</span>
-                  </div>
+                 <img
+                    src="/images/arshin.jpg"
+                    alt="Arshin P K"
+                    className="w-32 h-32 mx-auto mb-4 rounded-full object-cover border border-primary/20 shadow-md"
+                  />
                   <p className="text-sm text-muted-foreground font-medium">Profile Picture</p>
                 </div>
                 
