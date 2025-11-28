@@ -129,19 +129,16 @@ const Hero = () => {
               
               {/* Main profile container with glassmorphism */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-card/30 backdrop-blur-md border-2 border-primary/30 flex items-center justify-center overflow-hidden group-hover:border-primary/60 transition-all m-2">
-                {/* Inner content */}
-                <div className="text-center p-8 relative z-10">
-                 <img
-                    src="/images/arshin.jpg"
-                    alt="Arshin P K"
-                    className="w-32 h-32 mx-auto mb-4 rounded-full object-cover border border-primary/20 shadow-md"
-                  />
-                  <p className="text-sm text-muted-foreground font-medium">Profile Picture</p>
-                </div>
+                {/* Profile Image - fills the container */}
+                <img
+                  src="/images/arshin.jpg"
+                  alt="Arshin P K"
+                  className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                />
                 
                 {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: "0.5s" }}></div>
+                <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse z-20"></div>
+                <div className="absolute bottom-8 left-8 w-2 h-2 bg-secondary rounded-full animate-pulse z-20" style={{ animationDelay: "0.5s" }}></div>
               </div>
             </div>
           </div>
